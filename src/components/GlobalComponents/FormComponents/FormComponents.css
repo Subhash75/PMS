@@ -1,0 +1,15 @@
+.react-datepicker__header,
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__day--selected {
+  background-color: #fcd5d2 !important;
+}
+
+span.react-datepicker__navigation-icon::before {
+  border-color: #e40404 !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__day--selected {
+  color: #e40404 !important;
+}

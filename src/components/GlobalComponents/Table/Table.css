@@ -1,0 +1,27 @@
+.ag-theme-quartz {
+  --ag-font-family: "Inter Regular", sans-serif;
+  --ag-header-background-color: #e40404;
+  --ag-header-foreground-color: #fff;
+  --ag-border-color: #e40404;
+  --ag-header-column-resize-handle-color: #fff
+}
+
+.ag-header-row {
+  font-family: "Montserrat SemiBold", sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.ag-center-cols-viewport {
+  min-height: auto !important;
+}
+
+.ag-icon-asc, .ag-icon-desc, .ag-icon-menu, .ag-icon-filter {
+  color: #fff
+}
+
+.ag-row {
+  display: flex;
+  align-items: center;
+}
