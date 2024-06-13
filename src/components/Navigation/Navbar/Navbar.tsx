@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import UserModal from "./UserModal";
 import { AiOutlineLogout } from "react-icons/ai";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import Logout from "./Logout";
 import { useNavigate } from "react-router-dom";
 
@@ -25,6 +26,10 @@ const Navbar = () => {
     navigate("/login");
     setIsLogoutModalOpen((prev) => !prev);
   };
+
+  const handlePreviousPageRedirection = () => {
+    navigate(-1)
+  }
 
   const user = {
     name: "Subhash Ghosh",
@@ -53,6 +58,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="bg-white pl-20 pr-1 md:pr-5 flex items-center justify-between shadow-xl relative">
+        <IoMdArrowRoundBack onClick={handlePreviousPageRedirection} size={40} className="absolute left-10 cursor-pointer fill-primary" />
         <div className="flex-grow flex justify-center sm:ml-6 py-1 sm:py-3 tracking-widest font-Montserrat text-primary text-3xl font-bold">
           Preventive Maintenance System
         </div>

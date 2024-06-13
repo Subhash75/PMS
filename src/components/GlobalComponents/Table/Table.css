@@ -24,4 +24,9 @@
 .ag-row {
   display: flex;
   align-items: center;
+  /* z-index: 100; */
+}
+
+.ag-cell {
+  overflow: visible;
 }

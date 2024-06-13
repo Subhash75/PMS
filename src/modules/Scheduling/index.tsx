@@ -12,7 +12,7 @@ function Scheduling() {
     columnData,
     onGridReady,
     onSelectionChanged,
-    shortlistedRows,
+    sortedShortlistedData,
     shortlistedRowsWithCheckboxEnabled,
     handleShortlistedRowDelete,
     handleScheduleTask,
@@ -26,20 +26,28 @@ function Scheduling() {
           <StyledHeading css="!mb-0">Weekly Schedule</StyledHeading>
         </div>
         <div className="mt-6 bg-white px-4 py-6 rounded-md shadow-customBoxShadow ">
-          <p className="text-primary text-wide text-base font-Montserrat mb-3">
-            List of schedules
-          </p>
-          <Table
-            rowData={sortedRowData}
-            columnData={columnData}
-            onGridReady={onGridReady}
-            onSelectionChanged={onSelectionChanged}
-          />
+          {sortedRowData.length === 0 ? (
+            <p className="h-48 flex justify-center items-center font-Montserrat tracking-wider text-3xl">
+              No Entry Found...
+            </p>
+          ) : (
+            <>
+              <p className="text-primary text-wide text-base font-Montserrat mb-3">
+                List of schedules
+              </p>
+              <Table
+                rowData={sortedRowData}
+                columnData={columnData}
+                onGridReady={onGridReady}
+                onSelectionChanged={onSelectionChanged}
+              />
+            </>
+          )}
         </div>
         <div className="mt-6 bg-white px-4 py-6 rounded-md shadow-customBoxShadow ">
-          {shortlistedRows.length === 0 ? (
+          {sortedShortlistedData.length === 0 ? (
             <p className="h-48 flex justify-center items-center font-Montserrat tracking-wider text-3xl">
-              Please select items to shortlist by clicking the{" "}
+              Please select items to shortlist by clicking the
               <b className="tracking-wide px-3 py-3 mx-3 text-lg mt-[2px] font-Montserrat font-bold text-white border border-primary cursor-auto rounded-lg bg-primary flex items-center gap-x-2">
                 Shortlist <MdOutlineBookmarkAdd size={20} />
               </b>

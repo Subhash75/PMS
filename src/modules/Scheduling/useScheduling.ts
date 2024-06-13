@@ -9,6 +9,29 @@ import { setRowDataAction, setShortlistedRowsAction } from "./scheduling.slice";
 import { RootState } from "../../store";
 import EngineerProfileRenderer from "./components/EngineerProfileRenderer";
 
+function handleSortedDataBySiteId(data: rowTypes[]) {
+  const sortedSiteIdOrder = data
+    .map((value) => {
+      return {
+        siteId: value.siteId,
+        trueCount: Object.values(value).filter((value) => value === true)
+          .length,
+      };
+    })
+    .sort((a, b) => b.trueCount - a.trueCount)
+    .map((item) => item.siteId);
+
+  let orderMap = new Map<number, number>(
+    sortedSiteIdOrder.map((id, index) => [id, index])
+  );
+
+  return [...data].sort((a, b) => {
+    const orderA = orderMap.get(a.siteId) ?? -1;
+    const orderB = orderMap.get(b.siteId) ?? -1;
+    return orderA - orderB;
+  });
+}
+
 function useScheduling() {
   const [gridApi, setGridApi] = useState<any>(null);
   const [selectedRows, setSelectedRows] = useState([]);
@@ -21,24 +44,8 @@ function useScheduling() {
 
   const navigate = useNavigate();
 
-  const sortedSiteIdOrder = rowData
-    .map((value) => {
-      return {
-        siteId: value.siteId,
-        trueCount: Object.values(value).filter((value) => value === true)
-          .length,
-      };
-    })
-    .sort((a, b) => b.trueCount - a.trueCount)
-    .map((item) => item.siteId);
-
-  let orderMap = new Map<number, number>(sortedSiteIdOrder.map((id, index) => [id, index]));
-
-  let sortedRowData = [...rowData].sort((a, b) => {
-    const orderA = orderMap.get(a.siteId) ?? -1;
-    const orderB = orderMap.get(b.siteId) ?? -1;
-    return orderA - orderB;
-  });
+  const sortedRowData = handleSortedDataBySiteId(rowData);
+  const sortedShortlistedData = handleSortedDataBySiteId(shortlistedRows)
 
   const columnData = [
     { field: "nssId", headerName: "NSS ID", flex: 1 },
@@ -52,7 +59,12 @@ function useScheduling() {
     { field: "totalTaskComplete", headerName: "Total Task Completed", flex: 1 },
     { field: "lastActivityDone", headerName: "Last Activity Date", flex: 1 },
     { field: "statusSchedule", headerName: "Status Schedule", flex: 1 },
-    { field: "engineerAvailable", headerName: "Engineer Available", flex: 1, cellRenderer: EngineerProfileRenderer, },
+    {
+      field: "engineerAvailable",
+      headerName: "Engineer Available",
+      flex: 1,
+      cellRenderer: EngineerProfileRenderer,
+    },
     { field: "engineerDomain", headerName: "Engineer Domain", flex: 1 },
     {
       field: "alarm",
@@ -115,9 +127,11 @@ function useScheduling() {
       toast.error("Row already shortlisted");
       return;
     }
-    dispatch(setRowDataAction(rowData.filter(
-      (value: rowTypes) => value.siteId !== data.siteId
-    )))
+    dispatch(
+      setRowDataAction(
+        rowData.filter((value: rowTypes) => value.siteId !== data.siteId)
+      )
+    );
     dispatch(setShortlistedRowsAction([...shortlistedRows, data]));
   }
 
@@ -142,7 +156,7 @@ function useScheduling() {
     setSelectedRows(selectedData);
   };
 
-  const shortlistedRowsWithCheckboxEnabled = shortlistedRows.map((value) => {
+  const shortlistedRowsWithCheckboxEnabled = sortedShortlistedData.map((value) => {
     const newObj: Partial<rowTypes> = {};
 
     for (let key in value) {
@@ -163,7 +177,7 @@ function useScheduling() {
     columnData,
     onGridReady,
     onSelectionChanged,
-    shortlistedRows,
+    sortedShortlistedData,
     shortlistedRowsWithCheckboxEnabled,
     handleShortlistedRowDelete,
     handleScheduleTask,

@@ -1,38 +1,44 @@
+import EngineerProfileRenderer from "../../../modules/Scheduling/components/EngineerProfileRenderer";
 import Table from "../../../components/GlobalComponents/Table/Table";
 
 function PMProgress() {
   const rowData = [
     {
       taskId: "T001",
-      engAssigned: "Rahul Gupta",
+      engineerAvailable: ["Rahul Gupta"],
+      engineerDomain: "MW",
       taskStatus: "In Progress",
       startDate: "2023-06-01",
       endDate: "2023-06-10"
     },
     {
       taskId: "T002",
-      engAssigned: "Rahul Gurujala",
+      engineerAvailable: ["Rahul Gurujala"],
+      engineerDomain: "Optics",
       taskStatus: "Completed",
       startDate: "2023-05-15",
       endDate: "2023-05-20"
     },
     {
       taskId: "T003",
-      engAssigned: "Rahul Kulthe",
+      engineerAvailable: ["Rahul Kulthe"],
+      engineerDomain: "RAN",
       taskStatus: "Not Started",
       startDate: "2023-06-12",
       endDate: "2023-06-22"
     },
     {
       taskId: "T004",
-      engAssigned: "Subhash Ghosh",
+      engineerAvailable: ["Subhash Ghosh","Rahul Kulthe"],
+      engineerDomain: "RAN",
       taskStatus: "In Progress",
       startDate: "2023-06-03",
       endDate: "2023-06-13"
     },
     {
       taskId: "T005",
-      engAssigned: "Ashish Jha",
+      engineerAvailable: ["Ashish Jha"],
+      engineerDomain: "Optics",
       taskStatus: "Completed",
       startDate: "2023-05-25",
       endDate: "2023-06-05"
@@ -42,7 +48,8 @@ function PMProgress() {
 
   const columnData = [
     { field: "taskId", headerName: "Task ID", flex: 1 },
-    { field: "engAssigned", headerName: "Engineer Assigned", flex: 1 },
+    { field: "engineerAvailable", headerName: "Engineer Assigned", flex: 1, cellRenderer: EngineerProfileRenderer },
+    { field: "engineerDomain", headerName: "Domain of Engineer", flex: 1 },
     { field: "startDate", headerName: "Start Date", flex: 1 },
     { field: "endDate", headerName: "End Date", flex: 1 },
     { field: "taskStatus", headerName: "Status", flex: 1 },

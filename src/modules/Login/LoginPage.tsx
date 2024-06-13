@@ -44,8 +44,8 @@ function LoginPage() {
       return;
     }
     sessionStorage.setItem("token", "true");
-    navigate("/");
-    
+    navigate("/", { replace: true });
+
     // const { username, password } = getValues();
     // mutate({
     //   username,
@@ -57,7 +57,7 @@ function LoginPage() {
     <>
       <Toaster position="top-center" reverseOrder={false} />
       <div className="flex min-h-screen">
-        <div className="bg-gray-100 w-1/2 p-6  flex-shrink-0 flex-grow-0 flex flex-col justify-center items-center  ">
+        <div className="bg-gray-100 w-1/2 p-6  flex-shrink-0 flex-grow-0  hidden lg:flex flex-col justify-center items-center  ">
           <img
             src={VodafoneLogo}
             alt="vodafone_logo"
@@ -72,12 +72,12 @@ function LoginPage() {
             Preventive Maintenance System
           </h1>
         </div>
-        <div className="w-1/2 p-6 flex-shrink-0 flex-grow-0 flex items-center justify-center font-Montserrat">
+        <div className="w-full lg:w-1/2 p-6 flex-shrink-0 flex-grow-0 flex items-center justify-center font-Montserrat">
           <div className="flex flex-col justify-center relative w-[550px]">
             <img
               src={SquaresGrid}
               alt="squares_grid"
-              className="absolute bottom-[88%] right-0"
+              className="hidden sm:block absolute bottom-[88%] right-0"
             />
             <h2 className="text-4xl  tracking-wider mb-3">Login!</h2>
             <p>Great to have you back. Log in and let's get started!</p>
