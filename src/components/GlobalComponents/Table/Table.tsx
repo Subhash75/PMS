@@ -2,7 +2,6 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import { AgGridReact } from "ag-grid-react";
 import "./Table.css";
-import { useEffect, useRef } from "react";
 
 function Table({
   rowData = [],

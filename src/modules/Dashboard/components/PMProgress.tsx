@@ -47,12 +47,12 @@ function PMProgress() {
   
 
   const columnData = [
-    { field: "taskId", headerName: "Task ID", flex: 1 },
-    { field: "engineerAvailable", headerName: "Engineer Assigned", flex: 1, cellRenderer: EngineerProfileRenderer },
-    { field: "engineerDomain", headerName: "Domain of Engineer", flex: 1 },
-    { field: "startDate", headerName: "Start Date", flex: 1 },
-    { field: "endDate", headerName: "End Date", flex: 1 },
-    { field: "taskStatus", headerName: "Status", flex: 1 },
+    { field: "taskId", headerName: "Task ID", flex: 1, minWidth : 100 },
+    { field: "engineerAvailable", headerName: "Engineer Assigned", flex: 1, minWidth : 100, cellRenderer: EngineerProfileRenderer },
+    { field: "engineerDomain", headerName: "Domain of Engineer", flex: 1, minWidth : 100 },
+    { field: "startDate", headerName: "Start Date", flex: 1, minWidth : 100 },
+    { field: "endDate", headerName: "End Date", flex: 1, minWidth : 100 },
+    { field: "taskStatus", headerName: "Status", flex: 1, minWidth : 100 },
   ];
   return (
     <div className="mt-6 bg-white px-4 py-6 rounded-md shadow-customBoxShadow ">

@@ -21,18 +21,18 @@ function Scheduling() {
   return (
     <>
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="px-10 py-12">
-        <div className="bg-white px-4 py-6 rounded-md shadow-customBoxShadow ">
+      <div className="px-3 lg:px-10 py-5 lg:py-12">
+        <div className="bg-white px-4 py-3 sm:py-6 rounded-md shadow-customBoxShadow ">
           <StyledHeading css="!mb-0">Weekly Schedule</StyledHeading>
         </div>
-        <div className="mt-6 bg-white px-4 py-6 rounded-md shadow-customBoxShadow ">
+        <div className="mt-4 sm:mt-6 bg-white px-3 sm:px-4 py-3 sm:py-6 rounded-md shadow-customBoxShadow ">
           {sortedRowData.length === 0 ? (
             <p className="h-48 flex justify-center items-center font-Montserrat tracking-wider text-3xl">
               No Entry Found...
             </p>
           ) : (
             <>
-              <p className="text-primary text-wide text-base font-Montserrat mb-3">
+              <p className="text-primary text-wide text-sm sm:text-base font-Montserrat mb-3">
                 List of schedules
               </p>
               <Table
@@ -44,11 +44,11 @@ function Scheduling() {
             </>
           )}
         </div>
-        <div className="mt-6 bg-white px-4 py-6 rounded-md shadow-customBoxShadow ">
+        <div className="mt-4 sm:mt-6 bg-white px-3 sm:px-4 py-3 sm:py-6 rounded-md shadow-customBoxShadow ">
           {sortedShortlistedData.length === 0 ? (
-            <p className="h-48 flex justify-center items-center font-Montserrat tracking-wider text-3xl">
+            <p className="h-fit lg:h-48 block lg:flex justify-center items-center font-Montserrat tracking-wider text-center text-xl xl:text-3xl">
               Please select items to shortlist by clicking the
-              <b className="tracking-wide px-3 py-3 mx-3 text-lg mt-[2px] font-Montserrat font-bold text-white border border-primary cursor-auto rounded-lg bg-primary flex items-center gap-x-2">
+              <b className="tracking-wide px-3 py-1 lg:py-3 mx-3 text-lg mt-[2px] font-Montserrat font-bold text-white border border-primary cursor-auto rounded-lg bg-primary inline-flex items-center gap-x-2">
                 Shortlist <MdOutlineBookmarkAdd size={20} />
               </b>
               button
@@ -56,7 +56,7 @@ function Scheduling() {
           ) : (
             <>
               <div className="flex justify-between items-center mb-2">
-                <p className="text-primary text-wide text-base font-Montserrat mb-3">
+                <p className="text-primary text-wide text-sm sm:text-base font-Montserrat mb-3">
                   Shortlisted Items
                 </p>
                 <button
@@ -79,6 +79,7 @@ function Scheduling() {
                       onSubmit: (data: any) => handleShortlistedRowDelete(data),
                     },
                     flex: 1.1,
+                    minWidth : 150
                   },
                 ]}
               />

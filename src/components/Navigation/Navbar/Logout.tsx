@@ -15,7 +15,7 @@ function Logout({
     >
       <div className="font-Montserrat rounded-lg bg-white py-6 px-10 flex flex-col justify-center items-center">
         <IoWarningOutline size={50} className="text-ideaColor" />
-        <p className=" text-2xl tracking-wide my-6">
+        <p className="text-base sm:text-2xl tracking-wide my-6">
           Are you sure you want to logout?
         </p>
         <div className="flex gap-5">

@@ -10,12 +10,15 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import Logout from "./Logout";
 import { useNavigate } from "react-router-dom";
+import useResponsiveCondition from "../../../hooks/useResponsiveCondition";
 
 const Navbar = () => {
   const [isUserInfoOpen, setIsUserInfoOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
 
   const navigate = useNavigate();
+
+  const isAbove640px = useResponsiveCondition(640);
 
   const handleToggleModalState = () => {
     setIsLogoutModalOpen((prev) => !prev);
@@ -28,8 +31,8 @@ const Navbar = () => {
   };
 
   const handlePreviousPageRedirection = () => {
-    navigate(-1)
-  }
+    navigate(-1);
+  };
 
   const user = {
     name: "Subhash Ghosh",
@@ -57,16 +60,21 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white pl-20 pr-1 md:pr-5 flex items-center justify-between shadow-xl relative">
-        <IoMdArrowRoundBack onClick={handlePreviousPageRedirection} size={40} className="absolute left-10 cursor-pointer fill-primary" />
-        <div className="flex-grow flex justify-center sm:ml-6 py-1 sm:py-3 tracking-widest font-Montserrat text-primary text-3xl font-bold">
-          Preventive Maintenance System
-        </div>
+      <nav className="bg-white pl-5 lg:pl-20 pr-1 md:pr-5 flex items-center justify-between shadow-md lg:shadow-xl relative">
+        <IoMdArrowRoundBack
+          onClick={handlePreviousPageRedirection}
+          size={isAbove640px ? 40 : 25}
+          className="absolute left-2 lg:left-[1.5rem] cursor-pointer fill-primary"
+        />
+        <h4 className="flex-grow flex justify-center sm:ml-6 py-1 sm:py-3 tracking-widest font-Montserrat text-primary text-lg lg:text-xl xl:text-3xl font-bold">
+          {isAbove640px ? "Preventive Maintenance System" : "PMS"}
+        </h4>
         <button
           onClick={handleToggleModalState}
-          className="tracking-wide px-4 mb-2 py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg bg-primary text-white cursor-pointer flex items-center gap-x-2"
+          className="tracking-wide px-4 mb-0 sm:mb-2 py-1 sm:py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg bg-primary text-white cursor-pointer flex items-center gap-x-2"
         >
-          Logout <AiOutlineLogout size={20} />
+          <span className="text-sm sm:text-base">Logout</span>
+          <AiOutlineLogout size={isAbove640px ? 20 : 15} />
         </button>
         <div
           className="flex items-center border-l-2 cursor-pointer "
@@ -77,7 +85,7 @@ const Navbar = () => {
           }}
         >
           <div className="flex justify-center items-center mx-3 sm:mx-6  py-1 sm:py-3">
-            <p className="bg-red-600 rounded-full w-8 h-8 leading-8 sm:w-10 sm:h-10 sm:leading-10 pt-px text-center uppercase font-semibold text-2xl text-white">
+            <p className="bg-red-600 rounded-full w-8 h-8 leading-8 sm:w-10 sm:h-10 sm:leading-10 pt-px text-center uppercase font-semibold text-base sm:text-2xl text-white">
               {username.slice(0, 1)}
             </p>
           </div>

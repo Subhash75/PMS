@@ -61,22 +61,15 @@ function Inventory() {
     },
   ]);
 
-  // Column Definitions: Defines the columns to be displayed.
   const [columnData, setColumnDefs] = useState([
-    // {
-    //   field: "function",
-    //   flex: 1,
-    //   // checkboxSelection: true,
-    //   filter: "agTextColumnFilter",
-    // },
-    { field: "nssid", headerName: "NSSID", flex: 1 },
-    { field: "siteType", headerName: "Site Type", flex: 1 }, 
-    { field: "zone", headerName: "Zone", flex: 1 },
-    { field: "nodeCount", headerName: "Node Count", flex: 1 }, 
-    { field: "frequency", headerName: "Frequency", flex: 1 }, 
-    { field: "completion", headerName: "Last Activity Date", flex: 1 }, 
-    { field: "completedDate", headerName: "Completed Date", flex: 1 }, 
-    { field: "equipmentCount", headerName: "Equipment Count", flex: 1 },
+    { field: "nssid", headerName: "NSSID", flex: 1, minWidth : 150 },
+    { field: "siteType", headerName: "Site Type", flex: 1, minWidth : 150 }, 
+    { field: "zone", headerName: "Zone", flex: 1, minWidth : 150 },
+    { field: "nodeCount", headerName: "Node Count", flex: 1, minWidth : 150 }, 
+    { field: "frequency", headerName: "Frequency", flex: 1, minWidth : 150 }, 
+    { field: "completion", headerName: "Last Activity Date", flex: 1, minWidth : 150 }, 
+    { field: "completedDate", headerName: "Completed Date", flex: 1, minWidth : 150 }, 
+    { field: "equipmentCount", headerName: "Equipment Count", flex: 1, minWidth : 150 },
   ]);
 
   const [gridApi, setGridApi] = useState<any>(null);
@@ -91,12 +84,12 @@ function Inventory() {
   };
 
   return (
-    <div className="px-10 py-12">
-      <div className="bg-white px-4 py-6 rounded-md shadow-customBoxShadow ">
+    <div className="px-3 lg:px-10 py-5 lg:py-12">
+      <div className="bg-white px-4 py-3 sm:py-6 rounded-md shadow-customBoxShadow ">
         <StyledHeading css="!mb-0">Master Inventory</StyledHeading>
       </div>
-      <div className="mt-6 bg-white px-4 py-6 rounded-md shadow-customBoxShadow ">
-        <p className="text-primary text-wide text-base font-Montserrat mb-3">
+      <div className="mt-4 sm:mt-6 bg-white px-3 sm:px-4 py-3 sm:py-6 rounded-md shadow-customBoxShadow ">
+        <p className="text-primary text-wide text-sm sm:text-base font-Montserrat mb-3">
           List of sites
         </p>
         <Table

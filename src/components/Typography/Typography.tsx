@@ -9,7 +9,7 @@ function StyledHeading({
 }) {
   return (
     <h1
-      className={`font-Montserrat text-3xl tracking-wider mb-4 text-primary ${css}`}
+      className={`font-Montserrat text-lg md:text-xl lg:text-3xl tracking-wider mb-4 text-primary ${css}`}
     >
       {children}
     </h1>

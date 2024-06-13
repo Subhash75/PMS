@@ -48,24 +48,26 @@ function useScheduling() {
   const sortedShortlistedData = handleSortedDataBySiteId(shortlistedRows)
 
   const columnData = [
-    { field: "nssId", headerName: "NSS ID", flex: 1 },
-    { field: "siteType", headerName: "Site Type", flex: 1 },
-    { field: "lastTicketDate", headerName: "Tentative Start Date", flex: 1 },
+    { field: "nssId", headerName: "NSS ID", flex: 1,  minWidth : 120 },
+    { field: "siteType", headerName: "Site Type", flex: 1,  minWidth : 120 },
+    { field: "lastTicketDate", headerName: "Tentative Start Date", flex: 1,  minWidth : 120 },
     {
       field: "currentTicketDate",
       headerName: "Tentative Current Date",
       flex: 1,
+      minWidth : 120
     },
-    { field: "totalTaskComplete", headerName: "Total Task Completed", flex: 1 },
-    { field: "lastActivityDone", headerName: "Last Activity Date", flex: 1 },
-    { field: "statusSchedule", headerName: "Status Schedule", flex: 1 },
+    { field: "totalTaskComplete", headerName: "Total Task Completed", flex: 1, minWidth : 120 },
+    { field: "lastActivityDone", headerName: "Last Activity Date", flex: 1, minWidth : 120 },
+    { field: "statusSchedule", headerName: "Status Schedule", flex: 1, minWidth : 120 },
     {
       field: "engineerAvailable",
       headerName: "Engineer Available",
       flex: 1,
+      minWidth : 120,
       cellRenderer: EngineerProfileRenderer,
     },
-    { field: "engineerDomain", headerName: "Engineer Domain", flex: 1 },
+    { field: "engineerDomain", headerName: "Engineer Domain", flex: 1, minWidth : 120 },
     {
       field: "alarm",
       headerName: "Alarm",
@@ -74,6 +76,7 @@ function useScheduling() {
         type: "alarm",
       },
       flex: 1,
+      minWidth : 120
     },
     {
       field: "kpi",
@@ -83,6 +86,7 @@ function useScheduling() {
         type: "kpi",
       },
       flex: 1,
+      minWidth : 120
     },
     {
       field: "mansoon",
@@ -92,6 +96,7 @@ function useScheduling() {
         type: "mansoon",
       },
       flex: 1,
+      minWidth : 120
     },
     {
       field: "actions",
@@ -105,6 +110,7 @@ function useScheduling() {
         prevLength: prevLengthRef.current,
       },
       flex: 1.1,
+      minWidth : 150
     },
   ];
 
@@ -113,7 +119,7 @@ function useScheduling() {
     dispatch(setRowDataAction([...rowData, data]));
     dispatch(
       setShortlistedRowsAction(
-        shortlistedRows.filter(
+        shortlistedRows.filter( 
           (value: rowTypes) => value.siteId !== data.siteId
         )
       )

@@ -55,13 +55,13 @@ function useScheduledTasks() {
   ];
 
   const columnData = [
-    { field: "ticketID", headerName: "WFM Ticket ID ", flex: 1 },
-    { field: "task", headerName: "Task", flex: 1 },
-    { field: "engineerAvailable", headerName: "Engineer Assigned", flex: 1, cellRenderer: EngineerProfileRenderer },
-    { field: "engineerDomain", headerName: "Domain of Engineer", flex: 1 },
-    { field: "planStartDate", headerName: "Plan Start Date", flex: 1 },
-    { field: "planEndDate", headerName: "Plan End Date", flex: 1 },
-    { field: "scheduleStatus", headerName: "Status ", flex: 1 },
+    { field: "ticketID", headerName: "WFM Ticket ID ", flex: 1, minWidth : 150 },
+    { field: "task", headerName: "Task", flex: 1, minWidth : 150 },
+    { field: "engineerAvailable", headerName: "Engineer Assigned", flex: 1, minWidth : 150, cellRenderer: EngineerProfileRenderer },
+    { field: "engineerDomain", headerName: "Domain of Engineer", flex: 1, minWidth : 150 },
+    { field: "planStartDate", headerName: "Plan Start Date", flex: 1, minWidth : 150 },
+    { field: "planEndDate", headerName: "Plan End Date", flex: 1, minWidth : 150 },
+    { field: "scheduleStatus", headerName: "Status ", flex: 1, minWidth : 150 },
   ];
 
   return { rowData, columnData };

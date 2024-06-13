@@ -74,31 +74,31 @@ function Dashboard() {
   return (
     <div>
       <div className="py-6">
-        <div className="flex justify-between items-center border-b border-primary">
-          <StyledHeading css="mb-0 pb-3 px-6">Dashboard</StyledHeading>
-          <div className="flex gap-x-5">
+        <div className="flex justify-between items-center border-b border-primary flex-wrap sm:flex-nowrap">
+          <StyledHeading css="!mb-0 pb-3 px-6 w-full sm:w-auto flex-shrink-0 sm:flex-shrink">Dashboard</StyledHeading>
+          <div className="flex gap-x-2 lg:gap-x-5 px-6 sm:px-0">
             <button
               onClick={handleInventoryRedirect}
-              className="tracking-wide px-4 mb-2 py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg border-primary text-primary cursor-pointer flex items-center gap-x-2"
+              className="tracking-wide px-3 lg:px-4 mb-2 py-1 sm:py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg border-primary text-primary cursor-pointer flex items-center gap-x-2"
             >
               Inventory <FaLocationArrow size={20} />
             </button>
             <button
               onClick={handleWeeklyScheduleRedirect}
-              className="tracking-wide px-4 mb-2 py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg bg-primary text-white cursor-pointer flex items-center gap-x-2"
+              className="tracking-wide px-3 lg:px-4 mb-2 py-1 sm:py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg bg-primary text-white cursor-pointer flex items-center gap-x-2"
             >
               Weekly Schedule <FaLocationArrow size={20} />
             </button>
           </div>
         </div>
-        <div className="px-6">
-          <h2 className="font-Montserrat tracking-wide text-xl">
+        <div className="px-3 md:px-6 relative">
+          <h2 className="font-Montserrat tracking-wide text-xl mt-2">
             Welcome Back, <b>Subhash</b>
           </h2>
 
-          <div className="flex gap-6">
-            <div className="w-3/4 flex flex-col justify-between">
-              <div className="flex gap-5 w-full">
+          <div className="flex flex-wrap xl:flex-nowrap gap-6 absolute left-3 md:left-6 right-3 md:right-6 w-auto xl:static">
+            <div className="w-full xl:w-3/4 order-2 xl:order-1 flex flex-shrink-0 xl:flex-shrink flex-col justify-between">
+              <div className="hidden md:flex gap-5 w-full absolute top-0 xl:static">
                 {chipsData.map((value, index) => {
                   return (
                     <DashboardChips
@@ -121,7 +121,7 @@ function Dashboard() {
               </div>
             </div>
 
-            <div className="w-1/4 border rounded-lg flex flex-col">
+            <div className="w-full xl:w-1/4 mt-2 md:mt-[175px] xl:mt-0 order-1 xl:order-2 border rounded-lg flex flex-wrap xl:flex-nowrap flex-shrink-0 xl:flex-shrink flex-row xl:flex-col">
               <EmpProfile fullName="Subhash Ghosh" />
               <EmpZone />
               <PendingPM pendingPM={pendingPM} title="Pending" />

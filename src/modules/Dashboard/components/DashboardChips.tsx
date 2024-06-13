@@ -9,7 +9,7 @@ function DashboardChips({ ...props }) {
           {props.value}
         </p>
         <p className="text-sm">{props.title}</p>
-        <div className="absolute left-[90%] top-[80%] -translate-x-1/2 -translate-y-1/2 text-gray-300 fill-gray-300">
+        <div className="absolute left-[90%] top-[80%] -translate-x-1/2 -translate-y-1/2 text-gray-300 fill-gray-300 hidden lg:inline-block">
           {props.SVGComponentAsBg}
         </div>
       </div>

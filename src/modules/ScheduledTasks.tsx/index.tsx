@@ -10,12 +10,12 @@ function ScheduledTasks() {
       : 1;
 
   return (
-    <div className="px-10 py-12">
-      <div className="bg-white px-4 py-6 rounded-md shadow-customBoxShadow ">
+    <div className="px-3 lg:px-10 py-5 lg:py-12">
+      <div className="bg-white px-4 py-3 sm:py-6 rounded-md shadow-customBoxShadow ">
         <StyledHeading css="!mb-0">Scheduled Tasks</StyledHeading>
       </div>
-      <div className="mt-6 bg-white px-4 py-6 rounded-md shadow-customBoxShadow ">
-        <p className="text-primary text-wide text-base font-Montserrat mb-3">
+      <div className="mt-4 sm:mt-6 bg-white px-3 sm:px-4 py-3 sm:py-6 rounded-md shadow-customBoxShadow ">
+        <p className="text-primary text-wide text-sm sm:text-base  font-Montserrat mb-3">
           List of all Tasks
         </p>
         <Table
