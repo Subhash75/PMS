@@ -8,12 +8,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AuthRoute from "./components/LayoutRoutes/AuthRoute";
 import MainLayout from "./components/LayoutRoutes/MainLayout";
 import ChunkLoader from "./components/Loaders/ChunkLoader";
+// import CheckList from "./modules/Checklist";
 
 const LoginPage = lazy(() => import("./modules/Login/LoginPage"));
-const Dashboard = lazy(() => import( "./modules/Dashboard"));
+const Dashboard = lazy(() => import("./modules/Dashboard"));
 const Inventory = lazy(() => import("./modules/Inventory"));
 const Scheduling = lazy(() => import("./modules/Scheduling"));
 const ScheduledTasks = lazy(() => import("./modules/ScheduledTasks.tsx"));
+const Tracking = lazy(() => import("./modules/Tracking"));
+const Report = lazy(() => import("./modules/Report"));
 
 const router = createBrowserRouter([
   {
@@ -42,6 +45,18 @@ const router = createBrowserRouter([
             path: "/scheduled-tasks",
             element: <ScheduledTasks />,
           },
+          {
+            path: "/tracking",
+            element: <Tracking />,
+          },
+          {
+            path: "/report",
+            element: <Report />,
+          },
+          // {
+          //   path: "/checklist",
+          //   element: <CheckList />,
+          // },
         ],
       },
     ],

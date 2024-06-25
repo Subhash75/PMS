@@ -11,12 +11,10 @@ const profileBgColor = (index: number) => {
 };
 
 function EngineerProfile({ limitedNames, domain, handleProfileToggle }: any) {
-
   useEffect(() => {
     document.addEventListener("click", handleProfileToggle);
 
-    return () =>
-      document.removeEventListener("click", handleProfileToggle);
+    return () => document.removeEventListener("click", handleProfileToggle);
   }, []);
 
   return ReactDOM.createPortal(
@@ -24,7 +22,7 @@ function EngineerProfile({ limitedNames, domain, handleProfileToggle }: any) {
       className="fixed inset-0 bg-black bg-opacity-25 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none"
       style={{ zIndex: 1000000000 }}
     >
-      <div onClick={e => e.stopPropagation()} className="rounded-lg bg-white">
+      <div onClick={(e) => e.stopPropagation()} className="rounded-lg bg-white">
         <p className="font-Montserrat font-bold tracking-wider text-xl border-b text-center px-8 pt-5 py-2">
           Available Engineers ({limitedNames.length})
         </p>
@@ -66,8 +64,7 @@ function EngineerProfile({ limitedNames, domain, handleProfileToggle }: any) {
 }
 
 function EngineerProfileRenderer({ data }: any) {
-  const { engineerAvailable, engineerDomain } = data;
-
+  const { engineerAvailable, engineerDomain, statusSchedule } = data;
   const [showProfile, setShowProfile] = useState(false);
 
   const limitedNames = Array.isArray(engineerAvailable)
@@ -75,9 +72,13 @@ function EngineerProfileRenderer({ data }: any) {
     : [];
 
   const handleProfileToggle = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation()
+    e.stopPropagation();
     setShowProfile((prev) => !prev);
   };
+
+  if (statusSchedule === "None") {
+    return <p>-----</p>;
+  }
 
   return (
     <>

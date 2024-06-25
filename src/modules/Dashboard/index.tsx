@@ -9,6 +9,8 @@ import EmpProfile from "./components/EmpProfile";
 import EmpZone from "./components/EmpZone";
 import PMProgress from "./components/PMProgress";
 import PendingPM from "./components/PendingPM";
+import useDashboard from "./useDashboard";
+import Checklist from "./components/Checklist";
 
 const chipsData = [
   {
@@ -24,7 +26,7 @@ const chipsData = [
     SVGComponentAsBg: <GrInProgress size={80} />,
   },
   {
-    title: "Pending",
+    title: "Unassigned",
     value: "7",
     SVGComponent: <MdPendingActions size={28} />,
     SVGComponentAsBg: <MdPendingActions size={80} />,
@@ -61,6 +63,16 @@ const pendingPM = [
 ];
 
 function Dashboard() {
+  const {
+    isOpen,
+    checklistTitles,
+    sectionFilledValues,
+    selectedTitle,
+    relevantChecklistValues,
+    handleChecklistDialog,
+    handleChecklistChipSelection,
+  } = useDashboard();
+
   const navigate = useNavigate();
 
   const handleInventoryRedirect = () => {
@@ -71,12 +83,34 @@ function Dashboard() {
     navigate("/scheduling");
   };
 
+  const handleTrackingRedirect = () => {
+    navigate("/tracking");
+  };
+
+  const handleReportsRedirect = () => {
+    navigate("/report");
+  };
+
   return (
-    <div>
+    <>
       <div className="py-6">
         <div className="flex justify-between items-center border-b border-primary flex-wrap sm:flex-nowrap">
-          <StyledHeading css="!mb-0 pb-3 px-6 w-full sm:w-auto flex-shrink-0 sm:flex-shrink">Dashboard</StyledHeading>
+          <StyledHeading css="!mb-0 pb-3 px-6 w-full sm:w-auto flex-shrink-0 sm:flex-shrink">
+            Dashboard
+          </StyledHeading>
           <div className="flex gap-x-2 lg:gap-x-5 px-6 sm:px-0">
+            <button
+              onClick={handleTrackingRedirect}
+              className="tracking-wide px-3 lg:px-4 mb-2 py-1 sm:py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg border-primary text-primary cursor-pointer flex items-center gap-x-2"
+            >
+              Live Track <FaLocationArrow size={20} />
+            </button>
+            <button
+              onClick={handleReportsRedirect}
+              className="tracking-wide px-3 lg:px-4 mb-2 py-1 sm:py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg bg-primary text-white cursor-pointer flex items-center gap-x-2"
+            >
+              Reports <FaLocationArrow size={20} />
+            </button>
             <button
               onClick={handleInventoryRedirect}
               className="tracking-wide px-3 lg:px-4 mb-2 py-1 sm:py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg border-primary text-primary cursor-pointer flex items-center gap-x-2"
@@ -113,7 +147,7 @@ function Dashboard() {
               </div>
 
               <div className="mt-5 rounded-lg border w-full p-3 shadow-md">
-                <PMProgress />
+                <PMProgress handleChecklistDialog={handleChecklistDialog} />
               </div>
 
               <div className="mt-5 rounded-lg border w-full p-3 relative">
@@ -124,13 +158,22 @@ function Dashboard() {
             <div className="w-full xl:w-1/4 mt-2 md:mt-[175px] xl:mt-0 order-1 xl:order-2 border rounded-lg flex flex-wrap xl:flex-nowrap flex-shrink-0 xl:flex-shrink flex-row xl:flex-col">
               <EmpProfile fullName="Subhash Ghosh" />
               <EmpZone />
-              <PendingPM pendingPM={pendingPM} title="Pending" />
+              <PendingPM pendingPM={pendingPM} title="Sub Zone Pending Tasks" />
               <PendingPM pendingPM={[]} title="Pending at FE" />
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <Checklist
+        isOpen={isOpen}
+        selectedTitle={selectedTitle}
+        sectionFilledValues={sectionFilledValues}
+        checklistTitles={checklistTitles}
+        relevantChecklistValues={relevantChecklistValues}
+        handleChecklistDialog={handleChecklistDialog}
+        handleChecklistChipSelection={handleChecklistChipSelection}
+      />
+    </>
   );
 }
 

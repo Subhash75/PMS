@@ -33,7 +33,7 @@ function Scheduling() {
           ) : (
             <>
               <p className="text-primary text-wide text-sm sm:text-base font-Montserrat mb-3">
-                List of schedules
+                Proposed, Scheduled & Pending Approval
               </p>
               <Table
                 rowData={sortedRowData}
@@ -57,7 +57,7 @@ function Scheduling() {
             <>
               <div className="flex justify-between items-center mb-2">
                 <p className="text-primary text-wide text-sm sm:text-base font-Montserrat mb-3">
-                  Shortlisted Items
+                 Scheduled & Approved
                 </p>
                 <button
                   className="tracking-wide p-2 mt-[2px] font-Montserrat font-bold border rounded-md border-primary text-primary cursor-pointer flex items-center gap-x-2"

@@ -3,19 +3,20 @@ import Select, { StylesConfig } from "react-select";
 // import { Error } from "src/components/Typography/Typography";
 
 interface DropdownPropsTypes {
-  id: string,
-  label: string,
-  placeholder: string,
-  selectObj: Array<object>,
-  defaultValue?: object,
-  control: Control<any>,
-  error?: string,
-  isMulti?: boolean,
-  isLoading?: boolean,
-  closeMenuOnSelect?: boolean,
-  maxMenuHeight?: number,
-  components?: any,
-  isDisabled?: boolean,
+  id: string;
+  label: string;
+  placeholder: string;
+  selectObj: Array<object>;
+  defaultValue?: object;
+  control: Control<any>;
+  error?: string;
+  isMulti?: boolean;
+  isLoading?: boolean;
+  closeMenuOnSelect?: boolean;
+  maxMenuHeight?: number;
+  components?: any;
+  isDisabled?: boolean;
+  extraCss?: string;
 }
 
 function Dropdown({
@@ -32,6 +33,7 @@ function Dropdown({
   maxMenuHeight,
   components,
   isDisabled,
+  extraCss = "",
 }: DropdownPropsTypes) {
   const customStyles: StylesConfig = {
     control: (provided, state) => ({
@@ -109,7 +111,7 @@ function Dropdown({
   };
 
   return (
-    <div className="flex flex-col w-full  relative pb-4">
+    <div className={`flex flex-col w-full  relative pb-4 ${extraCss}`}>
       <label
         htmlFor={id}
         className="font-medium font-Montserrat text-sm text-primary mb-2 ml-1"

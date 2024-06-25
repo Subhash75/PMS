@@ -11,10 +11,13 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import Logout from "./Logout";
 import { useNavigate } from "react-router-dom";
 import useResponsiveCondition from "../../../hooks/useResponsiveCondition";
+import NotificationDrawer from "./NotificationDrawer";
+import { FaBell } from "react-icons/fa6";
 
 const Navbar = () => {
   const [isUserInfoOpen, setIsUserInfoOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -32,6 +35,10 @@ const Navbar = () => {
 
   const handlePreviousPageRedirection = () => {
     navigate(-1);
+  };
+
+  const handleClose = () => {
+    setIsDrawerOpen(false);
   };
 
   const user = {
@@ -69,6 +76,15 @@ const Navbar = () => {
         <h4 className="flex-grow flex justify-center sm:ml-6 py-1 sm:py-3 tracking-widest font-Montserrat text-primary text-lg lg:text-xl xl:text-3xl font-bold">
           {isAbove640px ? "Preventive Maintenance System" : "PMS"}
         </h4>
+        <div className="relative w-fit mr-6">
+          <FaBell
+            size={30}
+            className=" text-primary cursor-pointer"
+            onClick={() => setIsDrawerOpen(true)}
+            data-testid="notification-icon"
+          />
+          <p className="absolute left-1/2 -top-1/2 w-6 h-6 text-sm rounded-full bg-ideaColor text-white flex justify-center items-center font-Montserrat font-bold">4</p>
+        </div>
         <button
           onClick={handleToggleModalState}
           className="tracking-wide px-4 mb-0 sm:mb-2 py-1 sm:py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg bg-primary text-white cursor-pointer flex items-center gap-x-2"
@@ -90,8 +106,8 @@ const Navbar = () => {
             </p>
           </div>
           <div className="mr-4  py-1 sm:py-3 hidden md:block">
-            <p className="font-semibold">{username}</p>
-            <p className="text-sm capitalize">{user.role}</p>
+            <p className="font-semibold font-Montserrat">{username}</p>
+            <p className="text-sm capitalize font-Montserrat">{user.role}</p>
           </div>
           <MdOutlineKeyboardArrowDown size={30} />
         </div>
@@ -105,6 +121,7 @@ const Navbar = () => {
           handleLogout={handleLogout}
         />
       )}
+      {isDrawerOpen && <NotificationDrawer handleClose={handleClose} />}
     </>
   );
 };

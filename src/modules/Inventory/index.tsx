@@ -17,7 +17,7 @@ function Inventory() {
     },
     {
       nssid: 'IDUW102180',
-      siteType: "MICROWAVE",
+      siteType: "Pre-Agg",
       zone: 'ID_DEHRADUN',
       nodeCount: '3',
       frequency: '2',
@@ -28,7 +28,7 @@ function Inventory() {
     },
     {
       nssid: 'IDUW103176',
-      siteType: "MICROWAVE",
+      siteType: "OLA",
       zone: 'ID_RUDRAPUR',
       nodeCount: '3',
       frequency: '2',
@@ -39,7 +39,7 @@ function Inventory() {
     },
     {
       nssid: 'IDUW103176',
-      siteType: "MICROWAVE",
+      siteType: "OLA",
       zone: 'ID_RUDRAPUR',
       nodeCount: '3',
       frequency: '2',

@@ -2,7 +2,7 @@ function PendingPM({ pendingPM, title }: any) {
   return (
     <div
       className={`p-3 font-Montserrat flex flex-col flex-grow w-full sm:w-1/2 xl:w-full border-l-2 xl:border-l-0 flex-shrink-0  items-center ${
-        title === "Pending" ? "border-b" : "border-0"
+        title === "Sub Zone Pending Tasks" ? "border-b" : "border-0"
       }`}
     >
       <h4 className="font-semibold w-full text-lg text-primary text-center xl:text-left">{title}</h4>

@@ -9,7 +9,9 @@ interface DatePickerPropsTypes {
   label: string;
   control: Control<any>;
   placeholder: string;
-  defaultValue: string;
+  showTimeInput?: boolean;
+  defaultValue?: any;
+  extraCss?: string
 }
 
 const GlobalDatePicker = ({
@@ -18,9 +20,11 @@ const GlobalDatePicker = ({
   control,
   placeholder = "Select Date",
   defaultValue,
+  showTimeInput = false,
+  extraCss = ""
 }: DatePickerPropsTypes) => {
   return (
-    <div className="flex flex-col w-full mb-3 relative">
+    <div className={`flex flex-col w-full mb-3 relative ${extraCss}`}>
       <label
         htmlFor={id}
         className="font-medium font-Montserrat text-sm text-primary mb-2 ml-1"
@@ -37,6 +41,7 @@ const GlobalDatePicker = ({
             selected={value}
             onChange={onChange}
             onBlur={onBlur}
+            showTimeInput={showTimeInput}
             className="cursor-pointer border border-black rounded-md bg-gray-100 bg-opacity-25 w-full h-9 flex justify-between items-center px-4 text-sm font-Montserrat relative z-10 focus:outline-none "
           />
         )}

@@ -7,7 +7,7 @@ function DashboardScheduledTasks() {
   return (
     <div className="mt-6 bg-white px-4 py-6 rounded-md shadow-customBoxShadow ">
       <p className="text-primary text-wide font-Montserrat mb-3 font-semibold text-lg">
-        Previous Week Scheduled
+        Closed Tasks
       </p>
       <Table
         rowData={rowData}

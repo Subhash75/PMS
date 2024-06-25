@@ -10,7 +10,7 @@ function useScheduledTasks() {
       engineerDomain: "Mobility",
       planStartDate: "2024-06-15",
       planEndDate: "2024-08-20",
-      scheduleStatus: "Acknowledged",
+      scheduleStatus: "Closed",
     },
     {
       ticketID: "WFM002",
@@ -20,7 +20,7 @@ function useScheduledTasks() {
       engineerDomain: "Fibre",
       planStartDate: "2024-06-20",
       planEndDate: "2024-08-20",
-      scheduleStatus: "Pending",
+      scheduleStatus: "Resolved",
     },
     {
       ticketID: "WFM003",
@@ -30,7 +30,7 @@ function useScheduledTasks() {
       engineerDomain: "Transport",
       planStartDate: "2024-07-01",
       planEndDate: "2024-08-20",
-      scheduleStatus: "Acknowledged",
+      scheduleStatus: "Closed",
     },
     {
       ticketID: "WFM004",
@@ -40,7 +40,7 @@ function useScheduledTasks() {
       engineerDomain: "Optics",
       planStartDate: "2024-07-10",
       planEndDate: "2024-08-20",
-      scheduleStatus: "Pending",
+      scheduleStatus: "Cancelled",
     },
     {
       ticketID: "WFM005",
@@ -50,7 +50,7 @@ function useScheduledTasks() {
       engineerDomain: "Mobility",
       planStartDate: "2024-07-15",
       planEndDate: "2024-08-20",
-      scheduleStatus: "Pending",
+      scheduleStatus: "Closed",
     },
   ];
 

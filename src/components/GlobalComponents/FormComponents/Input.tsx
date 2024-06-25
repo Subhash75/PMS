@@ -12,6 +12,7 @@ interface InputPropsTypes {
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
   inputRef: any;
   error?: string;
+  extraCss?: string
 }
 
 function Input({
@@ -26,9 +27,10 @@ function Input({
   onFocus,
   inputRef,
   error,
+  extraCss
 }: InputPropsTypes) {
   return (
-    <div className="flex flex-col w-full mb-3 pb-1">
+    <div className={`flex flex-col w-full mb-3 pb-1 ${extraCss}`}>
       <label
         htmlFor={id}
         className="font-medium font-Montserrat text-sm text-primary mb-2 ml-1"
