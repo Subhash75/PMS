@@ -6,6 +6,8 @@ import { StyledHeading } from "../../components/Typography/Typography";
 import RemoveButtonRenderer from "./components/RemoveButtonRenderer";
 import useScheduling from "./useScheduling";
 
+import { RiFileExcel2Line } from "react-icons/ri";
+
 function Scheduling() {
   const {
     sortedRowData,
@@ -32,9 +34,14 @@ function Scheduling() {
             </p>
           ) : (
             <>
-              <p className="text-primary text-wide text-sm sm:text-base font-Montserrat mb-3">
-                Proposed, Scheduled & Pending Approval
-              </p>
+              <div className="flex justify-between items-center">
+                <p className="text-primary text-wide text-sm sm:text-base font-Montserrat mb-3">
+                  Proposed, Scheduled & Pending Approval
+                </p>
+                <button className="tracking-wide px-3 lg:px-4 mb-2 py-1 sm:py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg border-primary text-primary cursor-pointer flex items-center gap-x-2">
+                  Export <RiFileExcel2Line size={24} />
+                </button>
+              </div>
               <Table
                 rowData={sortedRowData}
                 columnData={columnData}
@@ -57,8 +64,11 @@ function Scheduling() {
             <>
               <div className="flex justify-between items-center mb-2">
                 <p className="text-primary text-wide text-sm sm:text-base font-Montserrat mb-3">
-                 Scheduled & Approved
+                  Scheduled & Approved
                 </p>
+                <button className="tracking-wide px-3 lg:px-4 mb-2 py-1 sm:py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg border-primary text-primary cursor-pointer flex items-center gap-x-2">
+                  Export <RiFileExcel2Line size={24} />
+                </button>
                 <button
                   className="tracking-wide p-2 mt-[2px] font-Montserrat font-bold border rounded-md border-primary text-primary cursor-pointer flex items-center gap-x-2"
                   onClick={handleScheduleTask}
@@ -79,7 +89,7 @@ function Scheduling() {
                       onSubmit: (data: any) => handleShortlistedRowDelete(data),
                     },
                     flex: 1.1,
-                    minWidth : 150
+                    minWidth: 150,
                   },
                 ]}
               />

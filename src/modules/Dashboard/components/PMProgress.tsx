@@ -1,8 +1,8 @@
-import { useState } from "react";
 import Table from "../../../components/GlobalComponents/Table/Table";
 import EngineerProfileRenderer from "../../../modules/Scheduling/components/EngineerProfileRenderer";
 import TaskIDRendererer from "./TaskIDRendererer";
 import { RiFileExcel2Line } from "react-icons/ri";
+import * as XLSX from 'xlsx';
 
 export function TicketStatusRenderer({ data }: any) {
   const { ticketAgingInDays } = data;
@@ -150,36 +150,30 @@ function PMProgress({
       cellRenderer: TicketStatusRenderer,
     },
     { field: "taskStatus", headerName: "Status", flex: 1, minWidth: 100 },
-  ];
-
-  const [gridApi, setGridApi] = useState<any>(null);
-
-  const onGridReady = (params: any) => {
-    setGridApi(params.api);
-  };
+  ]
 
   const handleExcelExport = () => {
-    gridApi.exportDataAsExcel();
-  };
+    const worksheet = XLSX.utils.json_to_sheet(rowData);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+    //let buffer = XLSX.write(workbook, { bookType: "xlsx", type: "buffer" });
+    //XLSX.write(workbook, { bookType: "xlsx", type: "binary" });
+    XLSX.writeFile(workbook, "DataSheet.xlsx");
+  }
 
   return (
     <div className="mt-6 bg-white px-4 py-6 rounded-md shadow-customBoxShadow ">
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <p className="text-primary text-wide font-Montserrat mb-3 font-semibold text-lg">
           Ongoing Task Status
         </p>
         <button
-          onClick={handleExcelExport}
           className="tracking-wide px-3 lg:px-4 mb-2 py-1 sm:py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg border-primary text-primary cursor-pointer flex items-center gap-x-2"
         >
           Export <RiFileExcel2Line size={24} />
         </button>
       </div>
-      <Table
-        rowData={rowData}
-        columnData={columnData}
-        onGridReady={onGridReady}
-      />
+      <Table rowData={rowData} columnData={columnData} />
     </div>
   );
 }
