@@ -1,14 +1,11 @@
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { ChecklistValuesTypes } from "../../../../../modules/Dashboard/dashboard.types";
 
 function ChecklistValues({
   selectedTitle,
   relevantChecklistValues,
   handleChecklistChipSelection,
-}: {
-  selectedTitle: string;
-  relevantChecklistValues: object;
-  handleChecklistChipSelection: (title: string) => void;
-}) {
+}: ChecklistValuesTypes) {
   const objectValues = Object.values(relevantChecklistValues || {});
 
   return (

@@ -1,12 +1,13 @@
+import {
+  ChecklistChipsPropsTypes,
+  RelevantValueTypes
+} from "../../../../../modules/Dashboard/dashboard.types";
+
 function ChecklistChips({
   checklistTitles,
   sectionFilledValues,
   handleChecklistChipSelection,
-}: {
-  checklistTitles: Array<string>;
-  sectionFilledValues: object;
-  handleChecklistChipSelection: (title: string) => void;
-}) {
+}: ChecklistChipsPropsTypes) {
   return (
     <div
       className="flex flex-col justify-center items-center relative"
@@ -16,7 +17,8 @@ function ChecklistChips({
         Click a tile for detailed view:
       </h3>
       {checklistTitles.map((value) => {
-        const relevantValue = sectionFilledValues[value] ?? {};
+        const relevantValue: RelevantValueTypes =
+          (sectionFilledValues[value] as RelevantValueTypes) ?? {};
         let percentage = Math.floor(
           (relevantValue.fieldWithValuesCount / relevantValue.totalCount) * 100
         );

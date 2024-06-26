@@ -1,3 +1,5 @@
+import { ChecklistReadOnlyConfigTypes } from "./dashboard.types";
+
 export const checklistConfig = {
   "Site Information": [
     {
@@ -208,7 +210,7 @@ export const checklistConfig = {
   ],
 };
 
-export const checklistReadOnlyConfig = {
+export const checklistReadOnlyConfig: ChecklistReadOnlyConfigTypes = {
   "Site Information": {
     circleName: { fieldName: "Circle Name", value: "Circle A" },
     zoneName: { fieldName: "Zone Name", value: "Ghaziabad" },

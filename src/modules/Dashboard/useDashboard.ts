@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { checklistReadOnlyConfig } from "./dashboard.constants";
+import { SectionFieldTypes } from "./dashboard.types";
 
 function useDashboard() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,7 @@ function useDashboard() {
 
   const relevantChecklistValues = checklistReadOnlyConfig[selectedTitle] ?? {};
 
-  const sectionFilledValues = {};
+  const sectionFilledValues: SectionFieldTypes = {};
 
   for (let key in checklistReadOnlyConfig) {
     let objectValues = Object.values(checklistReadOnlyConfig[key]);
@@ -25,8 +26,6 @@ function useDashboard() {
       totalCount: objectValues.length,
     };
   }
-
-  console.log({ checklistReadOnlyConfig, sectionFilledValues });
 
   const handleChecklistDialog = () => {
     setIsOpen((prev) => !prev);

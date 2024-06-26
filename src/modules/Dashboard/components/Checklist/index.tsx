@@ -1,3 +1,4 @@
+import { ChecklistPropsTypes } from "../../dashboard.types";
 import ChecklistChips from "./components/ChecklistChips";
 import ChecklistDrawer from "./components/ChecklistDrawer";
 import ChecklistValues from "./components/ChecklistValues";
@@ -10,15 +11,7 @@ function Checklist({
   selectedTitle,
   relevantChecklistValues,
   handleChecklistChipSelection,
-}: {
-  isOpen: boolean;
-  selectedTitle: string;
-  sectionFilledValues: object;
-  handleChecklistDialog: () => void;
-  checklistTitles: Array<string>;
-  relevantChecklistValues: object;
-  handleChecklistChipSelection: (title: string) => void;
-}) {
+}: ChecklistPropsTypes) {
   return (
     <ChecklistDrawer
       isOpen={isOpen}

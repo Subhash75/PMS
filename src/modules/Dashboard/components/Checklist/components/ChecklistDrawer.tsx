@@ -1,10 +1,5 @@
 import { RxCross1 } from "react-icons/rx";
-
-interface ChecklistDrawerPropsTypes {
-  children: React.ReactNode;
-  isOpen: boolean;
-  handleChecklistDialog: () => void;
-}
+import { ChecklistDrawerPropsTypes } from "../../../../../modules/Dashboard/dashboard.types";
 
 function ChecklistDrawer({
   children,
@@ -28,7 +23,7 @@ function ChecklistDrawer({
       >
         <article className="relative w-screen max-w-lg pb-10 flex flex-col space-y-6 overflow-y-scroll h-full font-Montserrat">
           <h2 className=" text-xl flex justify-between font-semibold tracking-wide text-primary border-b border-black p-3">
-            Checklist 
+            Checklist
             <RxCross1
               size={30}
               className="text-primary cursor-pointer"
