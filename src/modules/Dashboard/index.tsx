@@ -11,6 +11,10 @@ import PMProgress from "./components/PMProgress";
 import PendingPM from "./components/PendingPM";
 import useDashboard from "./useDashboard";
 import Checklist from "./components/Checklist";
+import SiteTypeChart from "./components/DashboardCharts/SiteTypeChart";
+import EngineersChart from "./components/DashboardCharts/EngineersChart";
+import PMCountGraph from "./components/DashboardCharts/PMCountGraph";
+import PunchPoints from "./components/DashboardCharts/PunchPoints";
 
 const chipsData = [
   {
@@ -146,18 +150,22 @@ function Dashboard() {
                 })}
               </div>
 
-              <div className="mt-5 rounded-lg border w-full p-3 shadow-md">
-                <PMProgress handleChecklistDialog={handleChecklistDialog} />
+              <div className="flex gap-x-10 mt-6 bg-white px-4  rounded-md shadow-customBoxShadow ">
+                <SiteTypeChart />
+                <EngineersChart />
               </div>
 
-              <div className="mt-5 rounded-lg border w-full p-3 relative">
-                <DashboardScheduledTasks />
-              </div>
+              <PMCountGraph />
+
+              <PMProgress handleChecklistDialog={handleChecklistDialog} />
+
+              <DashboardScheduledTasks />
             </div>
 
             <div className="w-full xl:w-1/4 mt-2 md:mt-[175px] xl:mt-0 order-1 xl:order-2 border rounded-lg flex flex-wrap xl:flex-nowrap flex-shrink-0 xl:flex-shrink flex-row xl:flex-col">
               <EmpProfile fullName="Subhash Ghosh" />
               <EmpZone />
+              <PunchPoints />
               <PendingPM pendingPM={pendingPM} title="Sub Zone Pending Tasks" />
               <PendingPM pendingPM={[]} title="Pending at FE" />
             </div>
