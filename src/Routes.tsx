@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AuthRoute from "./components/LayoutRoutes/AuthRoute";
 import MainLayout from "./components/LayoutRoutes/MainLayout";
 import ChunkLoader from "./components/Loaders/ChunkLoader";
+import CheckList2 from "./modules/Checklist2";
 // import CheckList from "./modules/Checklist";
 
 const LoginPage = lazy(() => import("./modules/Login/LoginPage"));
@@ -53,10 +54,10 @@ const router = createBrowserRouter([
             path: "/report",
             element: <Report />,
           },
-          // {
-          //   path: "/checklist",
-          //   element: <CheckList />,
-          // },
+          {
+            path: "/checklist",
+            element: <CheckList2 />,
+          },
         ],
       },
     ],
