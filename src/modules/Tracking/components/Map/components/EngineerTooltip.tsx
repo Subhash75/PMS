@@ -1,6 +1,6 @@
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { GoDotFill } from "react-icons/go";
-import EngineerImg from "/images/businessman_avatar.png";
+import EngineerImg from "../../../../../assets/images/businessman_avatar.png";
 
 function DriverTooltip() {
   return (

@@ -5,15 +5,12 @@ import { Toaster } from "react-hot-toast";
 import { CiUser } from "react-icons/ci";
 import { GoEye } from "react-icons/go";
 import { IoLockClosedOutline } from "react-icons/io5";
-// import SpinnerLoader from "src/components/Loaders/SpinnerLoader";
-// import { Error } from "src/components/Typography/Typography";
 import * as yup from "yup";
-import PMSLogo from "/images/PMLogo.png";
-import SquaresGrid from "/images/LoginSquaresGrid.png";
-import VodafoneLogo from "/images/VodafoneLogo.svg";
+import PMSLogo from "../../assets/images/PMLogo.png";
+import SquaresGrid from "../../assets/images/LoginSquaresGrid.png";
+import VodafoneLogo from "../../assets/images/VodafoneLogo.svg";
 import { useNavigate } from "react-router-dom";
 import { Error } from "../../components/Typography/Typography";
-// import { useLoginAPI } from "./service";
 
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -27,15 +24,12 @@ function LoginPage() {
   const {
     register,
     trigger,
-    getValues,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(yupValidate),
     mode: "onBlur",
     reValidateMode: "onSubmit",
   });
-
-  // const { mutate, isPending } = useLoginAPI();
 
   const handleSubmit = async () => {
     const validationPassed = await trigger();
@@ -45,12 +39,6 @@ function LoginPage() {
     }
     sessionStorage.setItem("token", "true");
     navigate("/", { replace: true });
-
-    // const { username, password } = getValues();
-    // mutate({
-    //   username,
-    //   password,
-    // });
   };
 
   return (
@@ -132,7 +120,7 @@ function LoginPage() {
               className="bg-primary text-white p-3 rounded-lg mt-5 flex justify-center gap-5"
               onClick={handleSubmit}
             >
-              {false ? <>{/* Submitting... <SpinnerLoader /> */}</> : "Submit"}
+              Submit
             </button>
           </div>
         </div>

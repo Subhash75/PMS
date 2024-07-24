@@ -10,7 +10,7 @@ import {
   useMap,
 } from "react-leaflet";
 import DriverTooltip from "./EngineerTooltip";
-import EngineerAvatar from "/images/businessman_avatar.png";
+import EngineerAvatar from "../../../../../assets/images/businessman_avatar.png";
 import { locationTypes } from "../../../tracking.types";
 import { engineerData } from "../../../tracking.constants";
 
