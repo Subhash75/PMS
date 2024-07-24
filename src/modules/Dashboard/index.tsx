@@ -95,6 +95,10 @@ function Dashboard() {
     navigate("/report");
   };
 
+  const handleChecklistRedirect = () => {
+    navigate("/checklist");
+  };
+
   return (
     <>
       <div className="py-6">
@@ -103,6 +107,12 @@ function Dashboard() {
             Dashboard
           </StyledHeading>
           <div className="flex gap-x-2 lg:gap-x-5 px-6 sm:px-0">
+            <button
+              onClick={handleChecklistRedirect}
+              className="tracking-wide px-3 lg:px-4 mb-2 py-1 sm:py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg bg-primary text-white cursor-pointer flex items-center gap-x-2"
+            >
+              Checklist <FaLocationArrow size={20} />
+            </button>
             <button
               onClick={handleTrackingRedirect}
               className="tracking-wide px-3 lg:px-4 mb-2 py-1 sm:py-3 mr-3 mt-[2px] font-Montserrat font-bold border rounded-lg border-primary text-primary cursor-pointer flex items-center gap-x-2"

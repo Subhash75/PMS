@@ -28,7 +28,7 @@ function CardSummaryMode({
       <div className="flex flex-wrap gap-x-5 gap-y-3">
         {cardValues[index].map((value: FieldConfigTypes) => {
           return (
-            <div className="w-[24%] mb-3 pb-1">
+            <div className="w-[23%] mb-3 pb-1">
               <p className="font-medium font-Montserrat text-sm text-primary mb-2 ml-1">
                 {value.field_name}
               </p>

@@ -8,7 +8,6 @@ import { IoLockClosedOutline } from "react-icons/io5";
 import * as yup from "yup";
 import PMSLogo from "../../assets/images/PMLogo.png";
 import SquaresGrid from "../../assets/images/LoginSquaresGrid.png";
-import VodafoneLogo from "../../assets/images/VodafoneLogo.svg";
 import { useNavigate } from "react-router-dom";
 import { Error } from "../../components/Typography/Typography";
 
@@ -27,6 +26,10 @@ function LoginPage() {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(yupValidate),
+    defaultValues: {
+      username: "Subhash Ghosh",
+      password: "Password",
+    },
     mode: "onBlur",
     reValidateMode: "onSubmit",
   });
@@ -46,11 +49,6 @@ function LoginPage() {
       <Toaster position="top-center" reverseOrder={false} />
       <div className="flex min-h-screen">
         <div className="bg-gray-100 w-1/2 p-6  flex-shrink-0 flex-grow-0  hidden lg:flex flex-col justify-center items-center  ">
-          <img
-            src={VodafoneLogo}
-            alt="vodafone_logo"
-            className="w-16 h-16 object-contain"
-          />
           <img
             src={PMSLogo}
             alt="vodafone_logo"

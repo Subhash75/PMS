@@ -30,7 +30,7 @@ function CardEditMode({
               label={value.field_name}
               placeholder={value.field_name}
               inputRef={register(value.field_slug)}
-              extraCss="!w-[24%]"
+              extraCss="!w-[23%]"
             />
           );
         })}

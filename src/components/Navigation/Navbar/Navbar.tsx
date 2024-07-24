@@ -43,7 +43,7 @@ const Navbar = () => {
 
   const user = {
     name: "Subhash Ghosh",
-    role: "ZTM",
+    role: "Admin",
     email: "subhash.ghosh@vodafoneidea.com",
   };
 
@@ -83,7 +83,9 @@ const Navbar = () => {
             onClick={() => setIsDrawerOpen(true)}
             data-testid="notification-icon"
           />
-          <p className="absolute left-1/2 -top-1/2 w-6 h-6 text-sm rounded-full bg-ideaColor text-white flex justify-center items-center font-Montserrat font-bold">4</p>
+          <p className="absolute left-1/2 -top-1/2 w-6 h-6 text-sm rounded-full bg-ideaColor text-white flex justify-center items-center font-Montserrat font-bold">
+            4
+          </p>
         </div>
         <button
           onClick={handleToggleModalState}
